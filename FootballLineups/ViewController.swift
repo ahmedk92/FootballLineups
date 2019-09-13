@@ -9,8 +9,18 @@
 import UIKit
 
 class ViewController: UIViewController {
+    private let lineups: Lineups
+    init(lineups: Lineups) {
+        self.lineups = lineups
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func loadView() {
-        view = View(frame: .zero)
+        view = View(lineups: lineups)
     }
 }
 
@@ -25,6 +35,17 @@ class View: UIView {
         fieldImageView.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.width * (fieldImage.size.height / fieldImage.size.width))
     }
     
+    private let lineups: Lineups
+    
+    init(lineups: Lineups) {
+        self.lineups = lineups
+        super.init(frame: .zero)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -33,7 +54,7 @@ class View: UIView {
 }
 
 extension ViewController {
-    func subview<T: UIView>(_ keyPath: KeyPath<View, T>) -> T {
+    func viewProperty<T>(_ keyPath: KeyPath<View, T>) -> T {
         return (view as! View)[keyPath: keyPath]
     }
 }
