@@ -9,19 +9,21 @@
 /* Begin PBXBuildFile section */
 		282DD7F5232C069F009BBC58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282DD7F4232C069F009BBC58 /* AppDelegate.swift */; };
 		282DD7F7232C069F009BBC58 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282DD7F6232C069F009BBC58 /* ViewController.swift */; };
-		282DD7FA232C069F009BBC58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 282DD7F8232C069F009BBC58 /* Main.storyboard */; };
 		282DD7FC232C06A0009BBC58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 282DD7FB232C06A0009BBC58 /* Assets.xcassets */; };
 		282DD7FF232C06A0009BBC58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 282DD7FD232C06A0009BBC58 /* LaunchScreen.storyboard */; };
+		282DD807232C06E5009BBC58 /* lineups.json in Resources */ = {isa = PBXBuildFile; fileRef = 282DD806232C06E5009BBC58 /* lineups.json */; };
+		282DD809232C06EF009BBC58 /* Lineups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282DD808232C06EF009BBC58 /* Lineups.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		282DD7F1232C069F009BBC58 /* FootballLineups.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FootballLineups.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		282DD7F4232C069F009BBC58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		282DD7F6232C069F009BBC58 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		282DD7F9232C069F009BBC58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		282DD7FB232C06A0009BBC58 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		282DD7FE232C06A0009BBC58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		282DD800232C06A0009BBC58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		282DD806232C06E5009BBC58 /* lineups.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lineups.json; sourceTree = "<group>"; };
+		282DD808232C06EF009BBC58 /* Lineups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lineups.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +58,11 @@
 			children = (
 				282DD7F4232C069F009BBC58 /* AppDelegate.swift */,
 				282DD7F6232C069F009BBC58 /* ViewController.swift */,
-				282DD7F8232C069F009BBC58 /* Main.storyboard */,
+				282DD806232C06E5009BBC58 /* lineups.json */,
 				282DD7FB232C06A0009BBC58 /* Assets.xcassets */,
 				282DD7FD232C06A0009BBC58 /* LaunchScreen.storyboard */,
 				282DD800232C06A0009BBC58 /* Info.plist */,
+				282DD808232C06EF009BBC58 /* Lineups.swift */,
 			);
 			path = FootballLineups;
 			sourceTree = "<group>";
@@ -122,9 +125,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				282DD807232C06E5009BBC58 /* lineups.json in Resources */,
 				282DD7FF232C06A0009BBC58 /* LaunchScreen.storyboard in Resources */,
 				282DD7FC232C06A0009BBC58 /* Assets.xcassets in Resources */,
-				282DD7FA232C069F009BBC58 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				282DD809232C06EF009BBC58 /* Lineups.swift in Sources */,
 				282DD7F7232C069F009BBC58 /* ViewController.swift in Sources */,
 				282DD7F5232C069F009BBC58 /* AppDelegate.swift in Sources */,
 			);
@@ -143,14 +147,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		282DD7F8232C069F009BBC58 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				282DD7F9232C069F009BBC58 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		282DD7FD232C06A0009BBC58 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
