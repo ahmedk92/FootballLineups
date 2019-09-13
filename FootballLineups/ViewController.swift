@@ -25,10 +25,15 @@ class ViewController: UIViewController {
 }
 
 class View: UIView {
+    private lazy var scrollView: UIScrollView = {
+        let sv = UIScrollView(frame: .zero)
+        addSubview(sv)
+        return sv
+    }()
     private lazy var fieldImage = UIImage(named: "field")!
     private lazy var fieldImageView: UIImageView = {
         let iv = UIImageView(image: fieldImage)
-        addSubview(iv)
+        scrollView.addSubview(iv)
         return iv
     }()
     private var fieldImageSizeScaleFactor: (x: CGFloat, y: CGFloat) = (1, 1)
@@ -36,6 +41,7 @@ class View: UIView {
         fieldImageView.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.width * (fieldImage.size.height / fieldImage.size.width))
         fieldImageSizeScaleFactor.x = fieldImageView.frame.width / fieldImage.size.width
         fieldImageSizeScaleFactor.y = fieldImageView.frame.height / fieldImage.size.height
+        scrollView.contentSize = fieldImageView.bounds.size
     }
     
     private let lineups: Lineups
@@ -55,7 +61,7 @@ class View: UIView {
             l.backgroundColor = .blue
             l.textColor = .white
             l.text = $0.key
-            addSubview(l)
+            scrollView.addSubview(l)
             return (l, $0.value)
         })
     }()
@@ -69,6 +75,7 @@ class View: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
+        scrollView.frame = bounds
         layoutFieldImageView()
         layoutHomeTeam()
     }
