@@ -68,7 +68,7 @@ class View: UIView {
     private func layoutHomeTeam() {
         for pin in homePins {
             pin.view.sizeToFit()
-            pin.view.center = CGPoint(x: pin.position.x * fieldImageSizeScaleFactor.x, y: pin.position.y * fieldImageSizeScaleFactor.y)
+            pin.view.center = CGPoint(x: (pin.position.x / fieldImage.scale) * fieldImageSizeScaleFactor.x, y: (pin.position.y / fieldImage.scale) * fieldImageSizeScaleFactor.y)
         }
     }
     
