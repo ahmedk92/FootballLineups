@@ -25,14 +25,17 @@ class ViewController: UIViewController {
 }
 
 class View: UIView {
-    fileprivate lazy var fieldImage = UIImage(named: "field")!
-    fileprivate lazy var fieldImageView: UIImageView = {
+    private lazy var fieldImage = UIImage(named: "field")!
+    private lazy var fieldImageView: UIImageView = {
         let iv = UIImageView(image: fieldImage)
         addSubview(iv)
         return iv
     }()
+    private var fieldImageSizeScaleFactor: (x: CGFloat, y: CGFloat) = (1, 1)
     private func layoutFieldImageView() {
         fieldImageView.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.width * (fieldImage.size.height / fieldImage.size.width))
+        fieldImageSizeScaleFactor.x = fieldImageView.frame.width / fieldImage.size.width
+        fieldImageSizeScaleFactor.y = fieldImageView.frame.height / fieldImage.size.height
     }
     
     private let lineups: Lineups
@@ -46,15 +49,28 @@ class View: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private lazy var homePins: [(view: UILabel, position: Position)] = {
+        return lineups.lineups.home.formation.positions.map({
+            let l = UILabel(frame: .zero)
+            l.backgroundColor = .blue
+            l.textColor = .white
+            l.text = $0.key
+            addSubview(l)
+            return (l, $0.value)
+        })
+    }()
+    private func layoutHomeTeam() {
+        for pin in homePins {
+            pin.view.sizeToFit()
+            pin.view.center = CGPoint(x: pin.position.x * fieldImageSizeScaleFactor.x, y: pin.position.y * fieldImageSizeScaleFactor.y)
+        }
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
         layoutFieldImageView()
+        layoutHomeTeam()
     }
 }
 
-extension ViewController {
-    func viewProperty<T>(_ keyPath: KeyPath<View, T>) -> T {
-        return (view as! View)[keyPath: keyPath]
-    }
-}
